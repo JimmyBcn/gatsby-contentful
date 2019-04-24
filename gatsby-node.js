@@ -27,7 +27,9 @@ exports.createPages = ({ graphql, actions }) => {
           allContentfulCategory {
             edges {
               node {
-								slug
+								id
+								node_locale
+								productId
 								categoryPageTemplate {
 									templateId
 								}
@@ -44,12 +46,15 @@ exports.createPages = ({ graphql, actions }) => {
         const categories = result.data.allContentfulCategory.edges
 
         categories.forEach((category, index) => {
+					const locale = category.node.node_locale;
+					const productId = category.node.productId;
 					const template = category.node.categoryPageTemplate.templateId === 1 ? categoryPage1 : categoryPage2;
+
           createPage({
-            path: category.node.slug, // the url
+            path: locale + "/" + productId, // the url path
             component: template, // the template
             context: {
-              slug: category.node.slug, // this context information will be available at the template
+              id: category.node.id, // this context information will be available at the template
             },
           })
         })

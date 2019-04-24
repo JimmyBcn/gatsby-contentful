@@ -19,10 +19,9 @@ export default class CategoryPageTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) { 
-    contentfulCategory(slug: { eq: $slug }) {
+  query($id: String!) { 
+    contentfulCategory(id: { eq: $id }) {
       name
-      slug
       image {
         fixed {
           src

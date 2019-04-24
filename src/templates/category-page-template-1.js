@@ -25,12 +25,11 @@ export default class CategoryPageTemplate extends React.Component {
 }
 
 // This is the GraphQL object that will contain all the queries used to retrieve the needed data for the page
-// We can use the context information set at gatsby-node.js, just referencing it using the $ (e.g: $slug) 
+// We can use the context information set at gatsby-node.js, just referencing it using the $ (e.g: $id) 
 export const pageQuery = graphql`
-  query($slug: String!) { 
-    contentfulCategory(slug: { eq: $slug }) {
+  query($id: String!) { 
+    contentfulCategory(id: { eq: $id }) {
       name
-      slug
       image {
         fixed {
           src
