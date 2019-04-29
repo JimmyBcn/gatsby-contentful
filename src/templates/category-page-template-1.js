@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 
+// Documentation:
 // https://www.gatsbyjs.org/tutorial/part-seven/
 // https://www.youtube.com/watch?v=IaNU4R3ck_k
 // https://github.com/gatsbyjs/gatsby/blob/master/examples/using-contentful/src/templates/category.js
