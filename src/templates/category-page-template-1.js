@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from "../components/seo"
 import Img from "gatsby-image"
+import triggerAnalytics from "../../analytics"
 
 // Documentation:
 // https://www.gatsbyjs.org/tutorial/part-seven/
@@ -11,6 +12,10 @@ import Img from "gatsby-image"
 
 // This is the template layout used when building Category pages
 export default class CategoryPageTemplate extends React.Component {
+  componentDidMount() {
+    triggerAnalytics("CategoryPage");
+  }
+
   render() {
     // All queries defined at PageQuery are available here as this.props.data
     const category = this.props.data.contentfulCategory;
